@@ -90,7 +90,7 @@ int term_width(void)
 
 void move_to_top(void)
 {
-    fprintf(TERM_FH, "\033[7A");
+    fprintf(TERM_FH, "\033[7B");
 }
 
 void move_to_x(int x)
@@ -164,24 +164,20 @@ void line_at(int start_x, const char *s)
 void draw_car(int x)
 {
     move_to_top();
-    line_at(x, "   ,---------------.");
-    line_at(x, "  /  /``````|``````\\\\");
-    line_at(x, " /  /_______|_______\\\\________");
-    line_at(x, "|]      GTI |'       |        |]");
-    if (x % 2) {
-    line_at(x, "=  .-:-.    |________|  .-:-.  =");
-    line_at(x, " `  -+-  --------------  -+-  '");
-    line_at(x, "   '-:-'                '-:-'  ");
-    } else {
-    line_at(x, "=  .:-:.    |________|  .:-:.  =");
-    line_at(x, " `   X   --------------   X   '");
-    line_at(x, "   ':-:'                ':-:'  ");
-    }
+    line_at(x, ",-,        , _,             ");
+    line_at(x,"|  \\       |   \\            ");
+    line_at(x, "|   '-------------------,   ");
+    line_at(x, "|    ''''''''''''''''  |_\\  ");
+    line_at(x,"\\_________/  .,/_________/  ");
+    line_at(x, "         /  ./              ");
+    line_at(x, "        /  /                ");
+    line_at(x, "        '''                 ");
 }
 
 void clear_car(int x)
 {
     move_to_top();
+    line_at(x, "  ");
     line_at(x, "  ");
     line_at(x, "  ");
     line_at(x, "  ");
